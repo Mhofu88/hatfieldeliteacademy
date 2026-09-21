@@ -22,5 +22,11 @@
     "label": "Transport ",
     "amount": "$20",
     "period": "per term "
+  },
+  {
+    "id": "mubhds574s4d9",
+    "label": "Outting ",
+    "amount": "100",
+    "period": "once pff"
   }
 ]
