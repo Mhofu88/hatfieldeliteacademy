@@ -28,5 +28,11 @@
     "label": "Outting ",
     "amount": "100",
     "period": "once pff"
+  },
+  {
+    "id": "mubhf8e83u21b",
+    "label": "Graduation ",
+    "amount": "000",
+    "period": "once pff"
   }
 ]
