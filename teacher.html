@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hatfield Elite Academy — Teacher</title>
+<link rel="icon" type="image/png" href="favicon-32.png">
+<style>
+  :root{
+    --forest:#0d3d2b; --forest-deep:#082a1d; --gold:#c9a83b; --cream:#f7f5ee;
+    --paper:#ffffff; --ink:#12241c; --muted:#5b6d63; --line:#e2e6de; --danger:#a83232;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif; background:var(--cream); color:var(--ink);}
+  header{background:var(--forest); color:#fff; padding:16px 18px; display:flex; align-items:center; gap:12px;}
+  header img{width:36px; height:36px; border-radius:50%; background:#fff; padding:2px; box-sizing:border-box; object-fit:contain; flex:none;}
+  header h1{margin:0; font-size:16px;}
+  header p{margin:2px 0 0; font-size:11px; opacity:.8;}
+
+  #lockScreen{max-width:360px; margin:50px auto; background:#fff; padding:24px; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.08);}
+  #lockScreen input{width:100%; padding:10px; border:1px solid var(--line); border-radius:8px; margin:10px 0; font-size:14px;}
+  #lockScreen button{width:100%; padding:11px; background:var(--forest); color:#fff; border:none; border-radius:8px; font-weight:700; cursor:pointer;}
+  #lockErr{color:var(--danger); font-size:12px; display:none;}
+  .lock-note{font-size:11.5px; color:var(--muted); line-height:1.5; margin-top:10px;}
+
+  main{max-width:820px; margin:0 auto; padding:16px 14px 60px; display:none;}
+  .tabs{display:flex; gap:6px; margin-bottom:14px;}
+  .tabs button{flex:none; border:1px solid var(--line); background:#fff; border-radius:100px; padding:7px 14px; font-size:12.5px; cursor:pointer;}
+  .tabs button.active{background:var(--forest); color:#fff; border-color:var(--forest);}
+
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .card{background:#fff; border-radius:14px; padding:16px; margin-bottom:14px; box-shadow:0 4px 14px rgba(13,61,43,.06);}
+  .card h2{font-size:14px; color:var(--forest); margin:0 0 12px;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  input, textarea, select{width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:8px; font-size:13px; font-family:inherit; margin-bottom:8px;}
+  textarea{min-height:60px;}
+  button.add{background:var(--gold); color:var(--forest-deep); border:none; border-radius:8px; padding:10px 16px; font-weight:800; font-size:13px; cursor:pointer;}
+
+  table{width:100%; border-collapse:collapse; font-size:12.5px; margin-top:10px;}
+  th,td{padding:7px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+  th{color:var(--muted); font-size:10.5px; text-transform:uppercase;}
+  .del{color:var(--danger); background:none; border:none; cursor:pointer; font-size:12px; font-weight:700;}
+</style>
+</head>
+<body>
+
+<div id="lockScreen">
+  <p style="font-size:13px; color:var(--muted); margin:0 0 4px;">Your name</p>
+  <input type="text" id="staffNameInput" placeholder="e.g. Mr Chikafu (Form 2A)">
+  <p style="font-size:13px; color:var(--muted); margin:14px 0 4px;">GitHub personal access token</p>
+  <input type="password" id="tokenInput" placeholder="github_pat_...">
+  <button onclick="unlock()">Unlock</button>
+  <p id="lockErr">That token couldn't write to the repo — check with the administrator.</p>
+  <p class="lock-note">Your name is stamped on anything you post, so the Principal can see who entered what. Neither your name nor the token is saved anywhere — both disappear when you close this page.</p>
+</div>
+
+<main id="mainArea">
+  <header>
+    <img src="logo-192.png" alt="Hatfield Elite Academy crest">
+    <div>
+      <h1>Hatfield Elite Academy — Teacher Panel</h1>
+      <p>Timetable, homework and results only</p>
+    </div>
+  </header>
+
+  <div style="padding:16px 0 0;">
+  <div class="tabs">
+    <button class="active" data-p="timetable">Timetable</button>
+    <button data-p="homework">Homework</button>
+    <button data-p="results">Results</button>
+  </div>
+
+  <!-- TIMETABLE -->
+  <div class="panel active" id="panel-timetable">
+    <div class="card">
+      <h2>Add timetable entry</h2>
+      <div class="grid2">
+        <input id="timetable-form" placeholder="Form (e.g. Form 2A)">
+        <input id="timetable-day" placeholder="Day (e.g. Monday)">
+      </div>
+      <div class="grid2">
+        <input id="timetable-time" placeholder="Time (e.g. 08:00–08:40)">
+        <input id="timetable-subject" placeholder="Subject">
+      </div>
+      <button class="add" onclick="addItem('timetable', ['form','day','time','subject'])">Add entry</button>
+    </div>
+    <div class="card"><h2>Current timetable</h2><div id="timetable-table"></div></div>
+  </div>
+
+  <!-- HOMEWORK -->
+  <div class="panel" id="panel-homework">
+    <div class="card">
+      <h2>Post homework</h2>
+      <div class="grid2">
+        <input id="homework-form" placeholder="Form (e.g. Form 2A)">
+        <input id="homework-subject" placeholder="Subject">
+      </div>
+      <input id="homework-dueDate" type="date">
+      <textarea id="homework-description" placeholder="Description"></textarea>
+      <button class="add" onclick="addItem('homework', ['form','subject','dueDate','description'])">Post homework</button>
+    </div>
+    <div class="card"><h2>Current homework</h2><div id="homework-table"></div></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="panel" id="panel-results">
+    <div class="card">
+      <h2>Add result highlight</h2>
+      <div class="grid2">
+        <input id="results-form" placeholder="Form (e.g. Form 2A)">
+        <input id="results-subject" placeholder="Subject">
+      </div>
+      <div class="grid2">
+        <input id="results-average" placeholder="Average % (e.g. 86)">
+        <input id="results-term" placeholder="Term (e.g. Term 1 2026)">
+      </div>
+      <button class="add" onclick="addItem('results', ['form','subject','average','term'])">Publish</button>
+    </div>
+    <div class="card"><h2>Published results</h2><div id="results-table"></div></div>
+  </div>
+  </div>
+</main>
+
+<script>
+const REPO_OWNER = "mhofu88";
+const REPO_NAME = "hatfieldeliteacademy";
+const BRANCH = "main";
+let TOKEN = "";
+let STAFF_NAME = "";
+
+const COLLECTIONS = {
+  timetable: { cols: ['form','day','time','subject'], headers: ['Form','Day','Time','Subject'] },
+  homework: { cols: ['form','subject','dueDate','description'], headers: ['Form','Subject','Due','Description'] },
+  results: { cols: ['form','subject','average','term'], headers: ['Form','Subject','Avg %','Term'] },
+};
+
+function apiUrl(name){ return `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data/${name}.json`; }
+function purge(name){ fetch(`https://purge.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@${BRANCH}/data/${name}.json`).catch(()=>{}); }
+function newId(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+function fmtDate(iso){ if (!iso) return ''; try { return new Date(iso).toLocaleDateString(undefined, { day:'numeric', month:'short', year:'numeric' }); } catch(e){ return iso; } }
+
+async function readCollection(name){
+  const res = await fetch(apiUrl(name), { headers: { Authorization: `token ${TOKEN}` } });
+  if (res.status === 404) return { data: [], sha: null };
+  if (res.status === 401 || res.status === 403) throw new Error('unauthorized');
+  if (!res.ok) throw new Error('read failed');
+  const info = await res.json();
+  const decoded = decodeURIComponent(escape(atob(info.content.replace(/\n/g, ''))));
+  return { data: JSON.parse(decoded || '[]'), sha: info.sha };
+}
+
+async function writeCollection(name, data, sha){
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  const body = { message: `Update ${name} via teacher panel (${STAFF_NAME})`, content, branch: BRANCH, ...(sha ? { sha } : {}) };
+  const res = await fetch(apiUrl(name), {
+    method: 'PUT',
+    headers: { Authorization: `token ${TOKEN}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) { const err = await res.json().catch(()=>({})); throw new Error(err.message || 'Write failed'); }
+  purge(name);
+  return res.json();
+}
+
+function unlock(){
+  const val = document.getElementById('tokenInput').value.trim();
+  const name = document.getElementById('staffNameInput').value.trim();
+  if (!val || !name) { document.getElementById('lockErr').textContent = 'Please enter your name and the token.'; document.getElementById('lockErr').style.display = 'block'; return; }
+  TOKEN = val;
+  STAFF_NAME = name;
+  readCollection('timetable').then(() => {
+    document.getElementById('lockScreen').style.display = 'none';
+    document.getElementById('mainArea').style.display = 'block';
+    loadAll();
+  }).catch(() => { document.getElementById('lockErr').textContent = "That token couldn't write to the repo — check with the administrator."; document.getElementById('lockErr').style.display = 'block'; });
+}
+
+document.querySelectorAll('.tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.p).classList.add('active');
+  });
+});
+
+async function loadCollection(name){
+  const conf = COLLECTIONS[name];
+  const tableEl = document.getElementById(name + '-table');
+  try {
+    const { data } = await readCollection(name);
+    if (!data.length){ tableEl.innerHTML = '<p style="font-size:12px;color:var(--muted);">Nothing here yet.</p>'; return; }
+    tableEl.innerHTML = `<table><thead><tr>${conf.headers.map(h=>`<th>${h}</th>`).join('')}<th>Entered by</th><th></th></tr></thead><tbody>${
+      data.map(item => `<tr>${
+        conf.cols.map(c => `<td>${c==='dueDate' ? fmtDate(item[c]) : (item[c]||'')}</td>`).join('')
+      }<td>${item.enteredBy||''}</td><td><button class="del" onclick="deleteItem('${name}','${item.id}')">Delete</button></td></tr>`).join('')
+    }</tbody></table>`;
+  } catch(e){ tableEl.innerHTML = '<p style="font-size:12px;color:var(--danger);">Failed to load.</p>'; }
+}
+
+async function addItem(name, fields){
+  const body = {};
+  fields.forEach(f => { body[f] = document.getElementById(`${name}-${f}`).value; });
+  try {
+    const { data, sha } = await readCollection(name);
+    data.unshift({ id: newId(), ...body, enteredBy: STAFF_NAME, createdAt: new Date().toISOString() });
+    await writeCollection(name, data, sha);
+    fields.forEach(f => { document.getElementById(`${name}-${f}`).value = ''; });
+    loadCollection(name);
+  } catch(e){ alert('Save failed: ' + e.message); }
+}
+
+async function deleteItem(name, id){
+  try {
+    const { data, sha } = await readCollection(name);
+    const filtered = data.filter(i => i.id !== id);
+    await writeCollection(name, filtered, sha);
+    loadCollection(name);
+  } catch(e){ alert('Delete failed: ' + e.message); }
+}
+
+function loadAll(){ Object.keys(COLLECTIONS).forEach(loadCollection); }
+</script>
+</body>
+</html>
