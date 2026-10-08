@@ -1,0 +1,794 @@
+[
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "08:00-08:30",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "08:30-09:00",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "09:00-09:30",
+    "subject": "ACC"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "09:30-10:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "10:30-11:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "11:00-11:30",
+    "subject": "STUDY"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "11:30-12:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "12:00-12:30",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F1",
+    "day": "Monday",
+    "time": "12:00-13:30",
+    "subject": "TTD"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "08:00-08:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "08:30-09:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "09:00-09:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "09:30-10:00",
+    "subject": "ACC"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "10:30-11:00",
+    "subject": "STUDY"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "11:00-11:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "11:30-12:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "12:00-12:30",
+    "subject": "SHONA"
+  },
+  {
+    "form": "F2",
+    "day": "Monday",
+    "time": "12:00-13:30",
+    "subject": "AGRIC"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "08:00-08:30",
+    "subject": "BES"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "08:30-09:00",
+    "subject": "BES"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "09:00-09:30",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "09:30-10:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "10:30-11:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "11:00-11:30",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "11:30-12:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "12:00-12:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F3",
+    "day": "Monday",
+    "time": "12:00-13:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "08:00-08:30",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "08:30-09:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "09:00-09:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "09:30-10:00",
+    "subject": "ACC"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "10:30-11:00",
+    "subject": "SHON"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "11:00-11:30",
+    "subject": "STUDY"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "11:30-12:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "12:00-12:30",
+    "subject": "SCIENC"
+  },
+  {
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "12:00-13:30",
+    "subject": "SPORT"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "08:00-08:30",
+    "subject": "SHONA"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "08:30-09:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "09:00-09:30",
+    "subject": "ACC"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "09:30-10:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "10:30-11:00",
+    "subject": "STUDY"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "11:00-11:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "11:30-12:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "12:00-12:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "12:00-13:30",
+    "subject": "SPORT"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "08:00-08:30",
+    "subject": "BES"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "08:30-09:00",
+    "subject": "BES"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "09:00-09:30",
+    "subject": "SHO"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "09:30-10:00",
+    "subject": "SHO"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "10:30-11:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "11:00-11:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "11:30-12:00",
+    "subject": "MAT"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "12:00-12:30",
+    "subject": "MAT"
+  },
+  {
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "12:00-13:30",
+    "subject": "SPORT"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "08:00-08:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "08:30-09:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "09:00-09:30",
+    "subject": "ACC"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "09:30-10:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "10:30-11:00",
+    "subject": "SCIEN"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "11:00-11:30",
+    "subject": "SHON"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "11:30-12:00",
+    "subject": "MAT"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "12:00-12:30",
+    "subject": "MATH"
+  },
+  {
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "12:00-13:30",
+    "subject": "CHAPEL"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "08:00-08:30",
+    "subject": "SCIENC"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "08:30-09:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "09:00-09:30",
+    "subject": "MAT"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "09:30-10:00",
+    "subject": "ACC"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "10:30-11:00",
+    "subject": "SHON"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "11:00-11:30",
+    "subject": "STUDY"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "11:30-12:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "12:00-12:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "12:00-13:30",
+    "subject": "CHAPEL"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "08:00-08:30",
+    "subject": "BES"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "08:30-09:00",
+    "subject": "BES"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "09:00-09:30",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "09:30-10:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "10:30-11:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "11:00-11:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "11:30-12:00",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "12:00-12:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "12:00-13:30",
+    "subject": "CHAPEL"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "08:00-08:30",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "08:30-09:00",
+    "subject": "SHON"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "09:00-09:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "09:30-10:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "10:30-11:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "11:00-11:30",
+    "subject": "TTD"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "11:30-12:00",
+    "subject": "TTD"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "12:00-12:30",
+    "subject": "HERITA"
+  },
+  {
+    "form": "F1",
+    "day": "Thursday",
+    "time": "12:00-13:30",
+    "subject": "SPORT"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "08:00-08:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "08:30-09:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "09:00-09:30",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "09:30-10:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "10:30-11:00",
+    "subject": "SHON"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "11:00-11:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "11:30-12:00",
+    "subject": "STUD"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "12:00-12:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Thursday",
+    "time": "12:00-13:30",
+    "subject": "SPORT"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "08:00-08:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "08:30-09:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "09:00-09:30",
+    "subject": "SHO"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "09:30-10:00",
+    "subject": "SHO"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "10:30-11:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "11:00-11:30",
+    "subject": "MATH"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "11:30-12:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "12:00-12:30",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F3",
+    "day": "Thursday",
+    "time": "12:00-13:30",
+    "subject": "SPORT"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "08:00-08:30",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "08:30-09:00",
+    "subject": "MATHS"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "09:00-09:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "09:30-10:00",
+    "subject": "G/C"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "10:30-11:00",
+    "subject": "SCIE"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "11:00-11:30",
+    "subject": "ENG"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "11:30-12:00",
+    "subject": "SHO"
+  },
+  {
+    "form": "F1",
+    "day": "Friday",
+    "time": "12:00-12:30",
+    "subject": "SHON"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "08:00-08:30",
+    "subject": "MATH"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "08:30-09:00",
+    "subject": "STUDY"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "09:00-09:30",
+    "subject": "HERI"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "09:30-10:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "10:30-11:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "11:00-11:30",
+    "subject": "AGRIC"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "11:30-12:00",
+    "subject": "AGRI"
+  },
+  {
+    "form": "F2",
+    "day": "Friday",
+    "time": "12:00-12:30",
+    "subject": "AGRIC"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "08:00-08:30",
+    "subject": "GEO"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "08:30-09:00",
+    "subject": "GEO"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "09:00-09:30",
+    "subject": "MAT"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "09:30-10:00",
+    "subject": "MAT"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "10:30-11:00",
+    "subject": "HERIT"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "11:00-11:30",
+    "subject": "HERI"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "11:30-12:00",
+    "subject": "ENG"
+  },
+  {
+    "form": "F3",
+    "day": "Friday",
+    "time": "12:00-12:30",
+    "subject": "ENG"
+  }
+]
