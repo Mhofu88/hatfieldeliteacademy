@@ -32,8 +32,11 @@
   .item{border-bottom:1px solid var(--line); padding:10px 0;}
   .item:last-child{border-bottom:none;}
   .item .t{font-size:13px; font-weight:700; color:var(--ink); margin:0 0 3px;}
-  .item .d{font-size:11.5px; color:var(--muted); margin:0;}
-  .item .meta{font-size:10.5px; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.04em;}
+  .item .d{font-size:11.5px; color:var(--muted); margin:0; white-space:pre-line; line-height:1.5;}
+  .item .d.clamp{display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;}
+  .item .d strong{color:var(--ink); font-weight:700;}
+  .read-more{background:none; border:none; color:var(--forest); font-weight:700; font-size:11.5px; padding:5px 0 0; cursor:pointer; display:block;}
+  .item .meta{font-size:10.5px; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-top:5px;}
 
   table{width:100%; border-collapse:collapse; font-size:12px;}
   th,td{text-align:left; padding:7px 4px; border-bottom:1px solid var(--line);}
@@ -192,6 +195,28 @@ async function readCollection(name){
   return res.json();
 }
 
+// ---- Text rendering helpers ----
+// Escapes HTML special characters so pasted content can never break the page
+// or inject markup, then turns *word* into <strong>word</strong> and keeps
+// line breaks the author typed, instead of collapsing everything into one run-on line.
+function escapeHtml(s){
+  return (s == null ? '' : String(s))
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+function formatRichText(s){
+  let t = escapeHtml(s);
+  t = t.replace(/\*([^\n*]+)\*/g, '<strong>$1</strong>');
+  t = t.replace(/\n/g, '<br>');
+  return t;
+}
+function toggleClamp(id, btn){
+  const el = document.getElementById(id);
+  const stillClamped = el.classList.toggle('clamp');
+  btn.textContent = stillClamped ? 'Read more' : 'Read less';
+}
+
 // ---- Tab switching ----
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -213,12 +238,18 @@ async function loadNews(){
   try {
     const items = await readCollection('news');
     if (!items.length){ el.innerHTML = '<div class="empty">No announcements yet — check back soon.</div>'; return; }
-    el.innerHTML = items.slice(0,8).map(n => `
+    el.innerHTML = items.slice(0,8).map((n, idx) => {
+      const raw = n.body || '';
+      const isLong = raw.length > 220;
+      const bodyId = `news-body-${idx}`;
+      return `
       <div class="item">
-        <p class="t">${n.title || ''}</p>
-        <p class="d">${n.body || ''}</p>
+        <p class="t">${escapeHtml(n.title)}</p>
+        <p class="d${isLong ? ' clamp' : ''}" id="${bodyId}">${formatRichText(raw)}</p>
+        ${isLong ? `<button class="read-more" onclick="toggleClamp('${bodyId}', this)">Read more</button>` : ''}
         <p class="meta">${fmtDate(n.createdAt)}</p>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load news right now.</div>'; }
 }
 
@@ -230,8 +261,8 @@ async function loadCalendarPreview(){
     if (!items.length){ el.innerHTML = '<div class="empty">No events scheduled yet.</div>'; return; }
     el.innerHTML = items.slice(0,5).map(c => `
       <div class="item">
-        <p class="t">${c.title || ''}</p>
-        <p class="d">${fmtDate(c.date)}${c.time ? ' · ' + c.time : ''}${c.location ? ' · ' + c.location : ''}</p>
+        <p class="t">${escapeHtml(c.title)}</p>
+        <p class="d">${fmtDate(c.date)}${c.time ? ' · ' + escapeHtml(c.time) : ''}${c.location ? ' · ' + escapeHtml(c.location) : ''}</p>
       </div>`).join('');
   } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load the calendar right now.</div>'; }
 }
@@ -245,7 +276,7 @@ async function loadTimetable(){
     timetableData = await readCollection('timetable');
     if (!timetableData.length){ listEl.innerHTML = '<div class="empty">Timetable not published yet.</div>'; tabsEl.innerHTML = ''; return; }
     const forms = [...new Set(timetableData.map(t => t.form).filter(Boolean))];
-    tabsEl.innerHTML = forms.map((f,i) => `<button class="${i===0?'active':''}" data-form="${f}">${f}</button>`).join('');
+    tabsEl.innerHTML = forms.map((f,i) => `<button class="${i===0?'active':''}" data-form="${escapeHtml(f)}">${escapeHtml(f)}</button>`).join('');
     tabsEl.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
       tabsEl.querySelectorAll('button').forEach(x => x.classList.remove('active'));
       b.classList.add('active');
@@ -259,7 +290,7 @@ function renderTimetable(form){
   const rows = timetableData.filter(t => t.form === form);
   if (!rows.length){ listEl.innerHTML = '<div class="empty">No timetable entries for this form yet.</div>'; return; }
   listEl.innerHTML = `<table><thead><tr><th>Day</th><th>Time</th><th>Subject</th></tr></thead><tbody>${
-    rows.map(r => `<tr><td>${r.day||''}</td><td>${r.time||''}</td><td>${r.subject||''}</td></tr>`).join('')
+    rows.map(r => `<tr><td>${escapeHtml(r.day)}</td><td>${escapeHtml(r.time)}</td><td>${escapeHtml(r.subject)}</td></tr>`).join('')
   }</tbody></table>`;
 }
 
@@ -269,12 +300,18 @@ async function loadHomework(){
   try {
     const items = await readCollection('homework');
     if (!items.length){ el.innerHTML = '<div class="empty">No homework posted yet.</div>'; return; }
-    el.innerHTML = items.slice(0,15).map(h => `
+    el.innerHTML = items.slice(0,15).map((h, idx) => {
+      const raw = h.description || '';
+      const isLong = raw.length > 220;
+      const bodyId = `hw-body-${idx}`;
+      return `
       <div class="item">
-        <p class="t">${h.subject || ''} — ${h.form || ''}</p>
-        <p class="d">${h.description || ''}</p>
+        <p class="t">${escapeHtml(h.subject)} — ${escapeHtml(h.form)}</p>
+        <p class="d${isLong ? ' clamp' : ''}" id="${bodyId}">${formatRichText(raw)}</p>
+        ${isLong ? `<button class="read-more" onclick="toggleClamp('${bodyId}', this)">Read more</button>` : ''}
         <p class="meta">Due ${fmtDate(h.dueDate)}</p>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load homework right now.</div>'; }
 }
 
@@ -285,7 +322,7 @@ async function loadResults(){
     const items = await readCollection('results');
     if (!items.length){ el.innerHTML = '<div class="empty">Results not published yet.</div>'; return; }
     el.innerHTML = `<table><thead><tr><th>Form</th><th>Subject</th><th>Average</th><th>Term</th></tr></thead><tbody>${
-      items.map(r => `<tr><td>${r.form||''}</td><td>${r.subject||''}</td><td>${r.average||''}%</td><td>${r.term||''}</td></tr>`).join('')
+      items.map(r => `<tr><td>${escapeHtml(r.form)}</td><td>${escapeHtml(r.subject)}</td><td>${escapeHtml(r.average)}%</td><td>${escapeHtml(r.term)}</td></tr>`).join('')
     }</tbody></table>`;
   } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load results right now.</div>'; }
 }
@@ -297,7 +334,7 @@ async function loadFees(){
     const items = await readCollection('fees');
     if (!items.length){ el.innerHTML = '<div class="empty">Fee schedule not published yet.</div>'; return; }
     el.innerHTML = items.map(f => `
-      <div class="fee-row"><span>${f.label || ''}${f.period ? ' · ' + f.period : ''}</span><span class="amt">$${f.amount || ''}</span></div>
+      <div class="fee-row"><span>${escapeHtml(f.label)}${f.period ? ' · ' + escapeHtml(f.period) : ''}</span><span class="amt">$${escapeHtml(f.amount)}</span></div>
     `).join('');
   } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load fees right now.</div>'; }
 }
