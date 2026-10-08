@@ -1,11 +1,1190 @@
 [
   {
-    "id": "muzcncyv19la0",
-    "form": "",
-    "day": "",
-    "time": "",
-    "subject": "",
-    "enteredBy": "Principal",
-    "createdAt": "2026-10-08T09:44:01.639Z"
+    "id": "muzecbtry0evf",
+    "form": "F1",
+    "day": "Monday",
+    "time": "08:00-08:30",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.182Z"
+  },
+  {
+    "id": "muzecbu751q8p",
+    "form": "F1",
+    "day": "Monday",
+    "time": "08:30-09:00",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7wfc2a",
+    "form": "F1",
+    "day": "Monday",
+    "time": "09:00-09:30",
+    "subject": "ACC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7xyk3r",
+    "form": "F1",
+    "day": "Monday",
+    "time": "09:30-10:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu79f2sm",
+    "form": "F1",
+    "day": "Monday",
+    "time": "10:30-11:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7u3adk",
+    "form": "F1",
+    "day": "Monday",
+    "time": "11:00-11:30",
+    "subject": "STUDY",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7c95pe",
+    "form": "F1",
+    "day": "Monday",
+    "time": "11:30-12:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7ynm1g",
+    "form": "F1",
+    "day": "Monday",
+    "time": "12:00-12:30",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7vjw8l",
+    "form": "F1",
+    "day": "Monday",
+    "time": "12:00-13:30",
+    "subject": "TTD",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7pcdyk",
+    "form": "F2",
+    "day": "Monday",
+    "time": "08:00-08:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu784fm6",
+    "form": "F2",
+    "day": "Monday",
+    "time": "08:30-09:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7yh5df",
+    "form": "F2",
+    "day": "Monday",
+    "time": "09:00-09:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu75hm1x",
+    "form": "F2",
+    "day": "Monday",
+    "time": "09:30-10:00",
+    "subject": "ACC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu755hc1",
+    "form": "F2",
+    "day": "Monday",
+    "time": "10:30-11:00",
+    "subject": "STUDY",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu738r1e",
+    "form": "F2",
+    "day": "Monday",
+    "time": "11:00-11:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7kbn5p",
+    "form": "F2",
+    "day": "Monday",
+    "time": "11:30-12:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7md5qv",
+    "form": "F2",
+    "day": "Monday",
+    "time": "12:00-12:30",
+    "subject": "SHONA",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7u9p5h",
+    "form": "F2",
+    "day": "Monday",
+    "time": "12:00-13:30",
+    "subject": "AGRIC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu75kxe7",
+    "form": "F3",
+    "day": "Monday",
+    "time": "08:00-08:30",
+    "subject": "BES",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu72sor0",
+    "form": "F3",
+    "day": "Monday",
+    "time": "08:30-09:00",
+    "subject": "BES",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7ezpuo",
+    "form": "F3",
+    "day": "Monday",
+    "time": "09:00-09:30",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu72gwxo",
+    "form": "F3",
+    "day": "Monday",
+    "time": "09:30-10:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7euwcx",
+    "form": "F3",
+    "day": "Monday",
+    "time": "10:30-11:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7og3hz",
+    "form": "F3",
+    "day": "Monday",
+    "time": "11:00-11:30",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7cam7n",
+    "form": "F3",
+    "day": "Monday",
+    "time": "11:30-12:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu79kc3h",
+    "form": "F3",
+    "day": "Monday",
+    "time": "12:00-12:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu75gqql",
+    "form": "F3",
+    "day": "Monday",
+    "time": "12:00-13:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu74sg4b",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "08:00-08:30",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7zblzj",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "08:30-09:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7lhh9u",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "09:00-09:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7m2gjq",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "09:30-10:00",
+    "subject": "ACC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu72rvcw",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "10:30-11:00",
+    "subject": "SHON",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7lmfzg",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "11:00-11:30",
+    "subject": "STUDY",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7z27hn",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "11:30-12:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7elnb8",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "12:00-12:30",
+    "subject": "SCIENC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7798qh",
+    "form": "F1",
+    "day": "Tuesday",
+    "time": "12:00-13:30",
+    "subject": "SPORT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7enu2z",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "08:00-08:30",
+    "subject": "SHONA",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7b24hh",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "08:30-09:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu78e4mz",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "09:00-09:30",
+    "subject": "ACC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7r8z0d",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "09:30-10:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu76l5vz",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "10:30-11:00",
+    "subject": "STUDY",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7po0cq",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "11:00-11:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7y43sr",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "11:30-12:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7wdghg",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "12:00-12:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7ya852",
+    "form": "F2",
+    "day": "Tuesday",
+    "time": "12:00-13:30",
+    "subject": "SPORT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7edaq5",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "08:00-08:30",
+    "subject": "BES",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7czvib",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "08:30-09:00",
+    "subject": "BES",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7yrqct",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "09:00-09:30",
+    "subject": "SHO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7lac5q",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "09:30-10:00",
+    "subject": "SHO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7so5wg",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "10:30-11:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu79m024",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "11:00-11:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7anyav",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "11:30-12:00",
+    "subject": "MAT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7xg7p7",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "12:00-12:30",
+    "subject": "MAT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7co4el",
+    "form": "F3",
+    "day": "Tuesday",
+    "time": "12:00-13:30",
+    "subject": "SPORT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7pxv3d",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "08:00-08:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7g08do",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "08:30-09:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu743ut1",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "09:00-09:30",
+    "subject": "ACC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7idkq8",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "09:30-10:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7srnun",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "10:30-11:00",
+    "subject": "SCIEN",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7a9hh7",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "11:00-11:30",
+    "subject": "SHON",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7kq8ol",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "11:30-12:00",
+    "subject": "MAT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7wd4oe",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "12:00-12:30",
+    "subject": "MATH",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7bmwnu",
+    "form": "F1",
+    "day": "Wednesday",
+    "time": "12:00-13:30",
+    "subject": "CHAPEL",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu78355c",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "08:00-08:30",
+    "subject": "SCIENC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7rn0le",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "08:30-09:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7f47za",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "09:00-09:30",
+    "subject": "MAT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7wgzz2",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "09:30-10:00",
+    "subject": "ACC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7hdw3i",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "10:30-11:00",
+    "subject": "SHON",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu73iehb",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "11:00-11:30",
+    "subject": "STUDY",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7p7idt",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "11:30-12:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7utyaz",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "12:00-12:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7nsi6i",
+    "form": "F2",
+    "day": "Wednesday",
+    "time": "12:00-13:30",
+    "subject": "CHAPEL",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7qbe80",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "08:00-08:30",
+    "subject": "BES",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7we827",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "08:30-09:00",
+    "subject": "BES",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu71be5e",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "09:00-09:30",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7luqgb",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "09:30-10:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu775f7q",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "10:30-11:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu746wlm",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "11:00-11:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7oivg1",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "11:30-12:00",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu79e8ab",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "12:00-12:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7f6epw",
+    "form": "F3",
+    "day": "Wednesday",
+    "time": "12:00-13:30",
+    "subject": "CHAPEL",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7ptfij",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "08:00-08:30",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu77vda3",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "08:30-09:00",
+    "subject": "SHON",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu76z52x",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "09:00-09:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7gxfl1",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "09:30-10:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu70r75b",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "10:30-11:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7i1ulk",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "11:00-11:30",
+    "subject": "TTD",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7q7fl2",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "11:30-12:00",
+    "subject": "TTD",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7gbwb3",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "12:00-12:30",
+    "subject": "HERITA",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7m6l4g",
+    "form": "F1",
+    "day": "Thursday",
+    "time": "12:00-13:30",
+    "subject": "SPORT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7ex28n",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "08:00-08:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7eqkuf",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "08:30-09:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu77ez7u",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "09:00-09:30",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7ov0hl",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "09:30-10:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7y6ql3",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "10:30-11:00",
+    "subject": "SHON",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7xybe3",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "11:00-11:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7hvpal",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "11:30-12:00",
+    "subject": "STUD",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7jy1yy",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "12:00-12:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7fol1t",
+    "form": "F2",
+    "day": "Thursday",
+    "time": "12:00-13:30",
+    "subject": "SPORT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu75clu0",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "08:00-08:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu7roz4o",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "08:30-09:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.191Z"
+  },
+  {
+    "id": "muzecbu76gqzk",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "09:00-09:30",
+    "subject": "SHO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8m0s4s",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "09:30-10:00",
+    "subject": "SHO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8nb2g2",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "10:30-11:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8dmuv7",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "11:00-11:30",
+    "subject": "MATH",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8lri41",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "11:30-12:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8tzlo0",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "12:00-12:30",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu89xayf",
+    "form": "F3",
+    "day": "Thursday",
+    "time": "12:00-13:30",
+    "subject": "SPORT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu85ay61",
+    "form": "F1",
+    "day": "Friday",
+    "time": "08:00-08:30",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8n2cvs",
+    "form": "F1",
+    "day": "Friday",
+    "time": "08:30-09:00",
+    "subject": "MATHS",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8avx0t",
+    "form": "F1",
+    "day": "Friday",
+    "time": "09:00-09:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8y3smj",
+    "form": "F1",
+    "day": "Friday",
+    "time": "09:30-10:00",
+    "subject": "G/C",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8d7g9i",
+    "form": "F1",
+    "day": "Friday",
+    "time": "10:30-11:00",
+    "subject": "SCIE",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8p74ic",
+    "form": "F1",
+    "day": "Friday",
+    "time": "11:00-11:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu88ioj1",
+    "form": "F1",
+    "day": "Friday",
+    "time": "11:30-12:00",
+    "subject": "SHO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8l2ay3",
+    "form": "F1",
+    "day": "Friday",
+    "time": "12:00-12:30",
+    "subject": "SHON",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8nhhw1",
+    "form": "F2",
+    "day": "Friday",
+    "time": "08:00-08:30",
+    "subject": "MATH",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8sdvuz",
+    "form": "F2",
+    "day": "Friday",
+    "time": "08:30-09:00",
+    "subject": "STUDY",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8xjfhf",
+    "form": "F2",
+    "day": "Friday",
+    "time": "09:00-09:30",
+    "subject": "HERI",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8rt3z8",
+    "form": "F2",
+    "day": "Friday",
+    "time": "09:30-10:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8dx5ee",
+    "form": "F2",
+    "day": "Friday",
+    "time": "10:30-11:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu82u099",
+    "form": "F2",
+    "day": "Friday",
+    "time": "11:00-11:30",
+    "subject": "AGRIC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu80ln2m",
+    "form": "F2",
+    "day": "Friday",
+    "time": "11:30-12:00",
+    "subject": "AGRI",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu865zyt",
+    "form": "F2",
+    "day": "Friday",
+    "time": "12:00-12:30",
+    "subject": "AGRIC",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu842to4",
+    "form": "F3",
+    "day": "Friday",
+    "time": "08:00-08:30",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8jz1c8",
+    "form": "F3",
+    "day": "Friday",
+    "time": "08:30-09:00",
+    "subject": "GEO",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8xllzb",
+    "form": "F3",
+    "day": "Friday",
+    "time": "09:00-09:30",
+    "subject": "MAT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8dtqf3",
+    "form": "F3",
+    "day": "Friday",
+    "time": "09:30-10:00",
+    "subject": "MAT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8fzf2j",
+    "form": "F3",
+    "day": "Friday",
+    "time": "10:30-11:00",
+    "subject": "HERIT",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.192Z"
+  },
+  {
+    "id": "muzecbu8b57hy",
+    "form": "F3",
+    "day": "Friday",
+    "time": "11:00-11:30",
+    "subject": "HERI",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.193Z"
+  },
+  {
+    "id": "muzecbu9v1rr2",
+    "form": "F3",
+    "day": "Friday",
+    "time": "11:30-12:00",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.193Z"
+  },
+  {
+    "id": "muzecbu910m13",
+    "form": "F3",
+    "day": "Friday",
+    "time": "12:00-12:30",
+    "subject": "ENG",
+    "enteredBy": "Alex",
+    "createdAt": "2026-10-08T10:31:26.193Z"
   }
 ]
