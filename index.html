@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hatfield Elite Academy</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0d3d2b">
+<style>
+  :root{
+    --forest:#0d3d2b; --forest-deep:#082a1d; --forest-mid:#155c3f; --leaf:#2f8f5e;
+    --gold:#c9a83b; --gold-soft:#e7d9a8; --cream:#f7f5ee; --paper:#ffffff; --ink:#12241c; --muted:#5b6d63; --line:#e2e6de;
+
+    /* Section identity colours — one family per tab, so parents can tell at a
+       glance which part of the app they're in (like the colour-coded tabs on a
+       school exercise book / report-card sections), without breaking from the
+       forest-and-gold brand. Tints stay very light for text contrast; the
+       deeper accent only ever sits on small elements (bars, chips, icons). */
+    --home-tint:#eef6f0;     --home-accent:#0d3d2b; --home-accent2:#2f8f5e;
+    --academic-tint:#eef1f8; --academic-accent:#2b3a67; --academic-accent2:#5068a8;
+    --results-tint:#fbf3e2;  --results-accent:#8a5d10; --results-accent2:#c9a83b;
+    --fees-tint:#faeef0;     --fees-accent:#7a2332; --fees-accent2:#b5495a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif; background:var(--cream); color:var(--ink); padding-bottom:70px;}
+  .app-header{background:linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%); color:#fff; padding:14px 18px 30px; display:flex; align-items:center; gap:12px;}
+  .crest{width:44px;height:44px;border-radius:50%; flex:none; background:#fff; display:flex;align-items:center;justify-content:center; padding:3px; box-sizing:border-box; box-shadow:0 3px 10px rgba(0,0,0,.18);}
+  .crest img{width:100%; height:100%; object-fit:contain;}
+  .app-header h1{font-size:16px; margin:0;}
+  .app-header p{font-size:11px; margin:2px 0 0; opacity:.85;}
+
+  main{max-width:640px; margin:-18px auto 0; padding:0 14px;}
+
+  /* Each tab carries its own theme variables; every card inside it reads
+     --accent / --accent2 / --tint from whichever tab wraps it. */
+  .tab[data-theme="home"]     { --tint:var(--home-tint);     --accent:var(--home-accent);     --accent2:var(--home-accent2); }
+  .tab[data-theme="academic"] { --tint:var(--academic-tint); --accent:var(--academic-accent); --accent2:var(--academic-accent2); }
+  .tab[data-theme="results"]  { --tint:var(--results-tint);  --accent:var(--results-accent);  --accent2:var(--results-accent2); }
+  .tab[data-theme="fees"]     { --tint:var(--fees-tint);     --accent:var(--fees-accent);     --accent2:var(--fees-accent2); }
+
+  .card{background:var(--tint, var(--paper)); border:1px solid rgba(18,36,28,.05); border-radius:16px; box-shadow:0 6px 18px rgba(13,61,43,0.08); margin-bottom:16px; overflow:hidden;}
+  .card.banner-card{background:var(--paper); border:none;}
+  .card-head{padding:15px 16px 8px; display:flex; justify-content:space-between; align-items:center; gap:8px;}
+  .card-head h2{font-size:14px; color:var(--accent, var(--forest)); margin:0; display:flex; align-items:center; gap:8px;}
+  .card-head h2::before{content:''; width:4px; height:15px; border-radius:3px; background:linear-gradient(180deg, var(--accent2, var(--gold)), var(--accent, var(--leaf))); flex:none;}
+  .card-head h2 .ic{font-size:15px;}
+  .card-body{padding:4px 16px 16px;}
+  .empty{font-size:12.5px; color:var(--muted); padding:10px 0;}
+  .loading{font-size:12.5px; color:var(--muted); padding:10px 0;}
+
+  .item{border-bottom:1px solid rgba(18,36,28,.08); padding:13px 0;}
+  .item:last-child{border-bottom:none;}
+  .item-top{display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:2px;}
+  .item .t{font-size:14px; font-weight:800; color:var(--ink); margin:0;}
+  .latest-tag{flex:none; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; background:var(--gold); color:var(--forest-deep); padding:3px 8px; border-radius:100px;}
+  .item .d{font-size:11.5px; color:var(--muted); margin:0;}
+  .item .meta{display:inline-flex; align-items:center; gap:5px; font-size:10px; color:var(--accent, var(--forest-deep)); font-weight:700; background:rgba(255,255,255,.65); padding:3px 10px; border-radius:100px; margin-top:8px;}
+  .item .meta::before{content:''; width:5px; height:5px; border-radius:50%; background:var(--gold);}
+
+  /* Rich-text rendering for announcement / homework bodies */
+  .rich-wrap{position:relative; overflow:hidden; max-height:235px; transition:max-height .25s ease;}
+  .rich-wrap.expanded{max-height:none;}
+  .rich-wrap:not(.expanded)::after{content:''; position:absolute; left:0; right:0; bottom:0; height:46px; background:linear-gradient(to bottom, rgba(238,246,240,0), var(--tint, var(--paper)));}
+  .rich-heading{display:block; color:var(--accent, var(--forest)); font-weight:800; font-size:14px; margin:12px 0 4px;}
+  .rich-heading:first-child{margin-top:0;}
+  .rich-p{margin:0 0 10px; color:var(--ink); opacity:.78; line-height:1.6; font-size:12.5px;}
+  .rich-p:last-child{margin-bottom:0;}
+  .rich-list{list-style:none; margin:0 0 10px; padding:0; display:flex; flex-direction:column; gap:7px;}
+  .rich-list li{position:relative; padding-left:21px; font-size:12.5px; color:var(--ink); opacity:.85; line-height:1.5;}
+  .rich-list li::before{content:'✓'; position:absolute; left:0; top:0; color:var(--accent2, var(--leaf)); font-weight:800; font-size:11px;}
+  .rich-p strong, .rich-list strong{color:var(--accent, var(--forest-deep)); font-weight:800;}
+  .read-more{background:none; border:none; color:var(--accent, var(--forest)); font-weight:800; font-size:11.5px; padding:8px 0 0; cursor:pointer; display:block;}
+
+  /* Calendar date chip — a small torn-off calendar-page shape so an event's
+     day is readable before the title, the way a wall calendar page works. */
+  .cal-row{display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid rgba(18,36,28,.08);}
+  .cal-row:last-child{border-bottom:none;}
+  .cal-badge{flex:none; width:44px; text-align:center; background:var(--accent, var(--forest)); color:#fff; border-radius:10px; padding:6px 0 7px; line-height:1.05;}
+  .cal-badge .day{display:block; font-size:17px; font-weight:800;}
+  .cal-badge .mon{display:block; font-size:9px; opacity:.85; margin-top:1px;}
+  .cal-info{padding-top:1px;}
+  .cal-info .t{font-size:13.5px; font-weight:800; color:var(--ink); margin:0;}
+  .cal-info .d{font-size:11.5px; color:var(--muted); margin:3px 0 0;}
+
+  table{width:100%; border-collapse:collapse; font-size:12px;}
+  th,td{text-align:left; padding:7px 4px; border-bottom:1px solid rgba(18,36,28,.08);}
+  th{color:var(--muted); font-weight:700; font-size:10.5px; text-transform:uppercase;}
+
+  .fee-row{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(18,36,28,.08); font-size:13px;}
+  .fee-row:last-child{border-bottom:none;}
+  .fee-row .amt{font-weight:800; color:var(--accent, var(--forest));}
+
+  form.pay-form{display:flex; flex-direction:column; gap:8px; margin-top:10px;}
+  form.pay-form input, form.pay-form select{padding:9px 10px; border:1px solid var(--line); border-radius:8px; font-size:13px; font-family:inherit; background:#fff;}
+  form.pay-form button{background:var(--gold); color:var(--forest-deep); border:none; border-radius:8px; padding:10px; font-weight:800; font-size:13px; cursor:pointer;}
+  .note-box{border-left:3px solid var(--accent2, var(--gold)); padding:8px 12px; margin:0 0 10px; background:rgba(255,255,255,.55); font-size:11.5px; color:var(--muted); border-radius:0 8px 8px 0;}
+
+  .bottom-nav{position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--line); display:flex; justify-content:space-around; padding:8px 8px 10px;}
+  .nav-item{display:flex; flex-direction:column; align-items:center; gap:2px; font-size:10px; color:var(--muted); cursor:pointer; background:none; border:none; font-family:inherit; border-radius:12px; padding:5px 14px;}
+  .nav-item .ic{font-size:17px;}
+  .nav-item[data-tab="home"].active     { color:var(--home-accent);     background:var(--home-tint);     font-weight:700; }
+  .nav-item[data-tab="academic"].active { color:var(--academic-accent); background:var(--academic-tint); font-weight:700; }
+  .nav-item[data-tab="results"].active  { color:var(--results-accent);  background:var(--results-tint);  font-weight:700; }
+  .nav-item[data-tab="fees"].active     { color:var(--fees-accent);     background:var(--fees-tint);     font-weight:700; }
+
+  .tab{display:none;}
+  .tab.active{display:block;}
+
+  .banner-card{padding:0;}
+  .banner-card img{display:block; width:100%; height:auto; cursor:zoom-in;}
+  .banner-actions{padding:12px 16px 14px; display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
+  .banner-actions span{font-size:11.5px; color:var(--muted);}
+  .wa-btn{background:#25a244; color:#fff; text-decoration:none; font-weight:800; font-size:13px; padding:10px 16px; border-radius:8px;}
+  #lightbox{display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:50; overflow:auto; padding:12px; -webkit-overflow-scrolling:touch;}
+  #lightbox img{display:block; max-width:100%; height:auto; margin:0 auto; border-radius:6px;}
+  #lightbox .close{position:fixed; top:10px; right:14px; color:#fff; font-size:30px; line-height:1; cursor:pointer; background:rgba(0,0,0,.5); border-radius:50%; width:40px; height:40px; text-align:center; padding-top:4px; z-index:51;}
+
+  .form-select-tabs{display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap;}
+  .form-select-tabs button{border:1px solid rgba(43,58,103,.25); background:#fff; border-radius:100px; padding:5px 12px; font-size:11.5px; cursor:pointer; color:var(--academic-accent);}
+  .form-select-tabs button.active{background:var(--academic-accent); color:#fff; border-color:var(--academic-accent);}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="crest"><img src="logo-192.png" alt="Hatfield Elite Academy crest"></div>
+  <div>
+    <h1>Hatfield Elite Academy</h1>
+    <p>Excellence in Education, Guided by Faith</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- HOME / NEWS -->
+  <div id="tab-home" class="tab active" data-theme="home">
+    <div class="card banner-card" id="bannerCard">
+      <img src="banner.jpg" alt="Hatfield Elite Academy is enrolling for Form 1 and Lower 6th for 2027" id="bannerImg" onerror="document.getElementById('bannerCard').style.display='none'">
+      <div class="banner-actions">
+        <span>Tap the banner to enlarge</span>
+        <a class="wa-btn" id="enquireBtn" href="#" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">📢</span>News &amp; Announcements</h2></div>
+      <div class="card-body" id="newsList"><div class="loading">Loading…</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">📅</span>Upcoming on the Calendar</h2></div>
+      <div class="card-body" id="calendarPreview"><div class="loading">Loading…</div></div>
+    </div>
+  </div>
+
+  <!-- ACADEMIC: timetable + homework -->
+  <div id="tab-academic" class="tab" data-theme="academic">
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">🗓️</span>Timetable</h2></div>
+      <div class="card-body">
+        <div class="form-select-tabs" id="timetableForms"></div>
+        <div id="timetableList"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">📝</span>Homework &amp; Assignments</h2></div>
+      <div class="card-body" id="homeworkList"><div class="loading">Loading…</div></div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="tab-results" class="tab" data-theme="results">
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">📊</span>Term Results — Form Highlights</h2></div>
+      <div class="card-body">
+        <p class="empty" style="margin-top:0;">Class-wide term averages by subject. Individual student results and full report cards unlock with parent portal accounts, coming soon.</p>
+        <div id="resultsList"><div class="loading">Loading…</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEES -->
+  <div id="tab-fees" class="tab" data-theme="fees">
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">💳</span>Fee Schedule</h2></div>
+      <div class="card-body" id="feesList"><div class="loading">Loading…</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2><span class="ic">🧾</span>Declare a Payment</h2></div>
+      <div class="card-body">
+        <div class="note-box">Fill this in, then tap "Send to Bursar" — it opens WhatsApp with your details ready to send. The Bursar will confirm your payment from there.</div>
+        <form class="pay-form" id="payForm">
+          <input type="text" name="studentName" placeholder="Student's full name" required>
+          <input type="text" name="form" placeholder="Form/Grade (e.g. Form 2A)" required>
+          <input type="text" name="amount" placeholder="Amount paid (USD)" required>
+          <select name="method" required>
+            <option value="">Payment method</option>
+            <option>EcoCash</option>
+            <option>Innbucks</option>
+            <option>Paynow</option>
+            <option>Bank transfer</option>
+            <option>Cash</option>
+          </select>
+          <input type="text" name="reference" placeholder="Reference / transaction ID">
+          <button type="submit">Send to Bursar via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div id="lightbox">
+  <div class="close" id="lightboxClose">&times;</div>
+  <img src="banner.jpg" alt="Hatfield Elite Academy enrolment banner">
+</div>
+
+<div class="bottom-nav">
+  <button class="nav-item active" data-tab="home"><div class="ic">🏠</div>Home</button>
+  <button class="nav-item" data-tab="academic"><div class="ic">📚</div>Academic</button>
+  <button class="nav-item" data-tab="results"><div class="ic">📊</div>Results</button>
+  <button class="nav-item" data-tab="fees"><div class="ic">💳</div>Fees</button>
+</div>
+
+<script>
+// ===== GitHub-backed data source (no external server) =====
+const REPO_OWNER = "mhofu88";
+const REPO_NAME = "hatfieldeliteacademy";
+const FINANCE_REPO = "hatfieldeliteacademy-finance";
+const BRANCH = "main";
+const BURSAR_WHATSAPP = "263775000713"; // update if this should be a different number
+
+const FINANCE_COLLECTIONS = ["fees", "payments"];
+function repoFor(name){ return FINANCE_COLLECTIONS.includes(name) ? FINANCE_REPO : REPO_NAME; }
+
+function cdnUrl(name){
+  return `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${repoFor(name)}@${BRANCH}/data/${name}.json`;
+}
+
+async function readCollection(name){
+  const res = await fetch(cdnUrl(name), { cache: "no-store" });
+  if (res.status === 404) return [];
+  if (!res.ok) throw new Error("read failed");
+  return res.json();
+}
+
+// ---- Text rendering helpers ----
+// Escapes HTML so pasted content can never break the page or inject markup.
+function escapeHtml(s){
+  return (s == null ? '' : String(s))
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+// Turns *word* into <strong>word</strong> within a single line/paragraph.
+function inlineFormat(s){
+  return escapeHtml(s).replace(/\*([^\n*]+)\*/g, '<strong>$1</strong>');
+}
+// Parses WhatsApp-style text into real headings, paragraphs and bullet lists,
+// instead of one dense run-on block: a line that's entirely *wrapped in
+// asterisks* becomes a heading, lines starting with "- " become a checklist,
+// and blank-line-separated text becomes its own paragraph.
+function formatRichBlocks(raw){
+  if (!raw) return '';
+  const lines = String(raw).replace(/\r\n/g, '\n').split('\n');
+  let html = '';
+  let listBuffer = [];
+  let paraBuffer = [];
+  function flushList(){
+    if (listBuffer.length){
+      html += '<ul class="rich-list">' + listBuffer.map(li => `<li>${inlineFormat(li)}</li>`).join('') + '</ul>';
+      listBuffer = [];
+    }
+  }
+  function flushPara(){
+    if (paraBuffer.length){
+      const text = paraBuffer.join(' ').trim();
+      if (text) html += `<p class="rich-p">${inlineFormat(text)}</p>`;
+      paraBuffer = [];
+    }
+  }
+  lines.forEach(line => {
+    const trimmed = line.trim();
+    if (!trimmed){ flushList(); flushPara(); return; }
+    const bulletMatch = trimmed.match(/^[-*]\s+(.*)/);
+    if (bulletMatch){ flushPara(); listBuffer.push(bulletMatch[1]); return; }
+    flushList();
+    const headingMatch = trimmed.match(/^\*([^*]+)\*$/);
+    if (headingMatch && trimmed.length < 70){
+      flushPara();
+      html += `<strong class="rich-heading">${escapeHtml(headingMatch[1])}</strong>`;
+      return;
+    }
+    paraBuffer.push(trimmed);
+  });
+  flushList(); flushPara();
+  return html || `<p class="rich-p">${inlineFormat(raw)}</p>`;
+}
+function toggleExpand(id, btn){
+  const el = document.getElementById(id);
+  const nowExpanded = el.classList.toggle('expanded');
+  btn.textContent = nowExpanded ? 'Show less' : 'Read more';
+}
+
+// ---- Tab switching ----
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+function fmtDate(iso){
+  try { return new Date(iso).toLocaleDateString(undefined, { day:'numeric', month:'short', year:'numeric' }); }
+  catch(e){ return iso || ''; }
+}
+
+// If staff pasted the headline both as the item's title AND as the first
+// *heading* line inside the body (common when copying straight from
+// WhatsApp), drop that first line so it isn't shown twice in a row.
+function stripDuplicateHeading(body, title){
+  if (!body || !title) return body;
+  const lines = String(body).replace(/\r\n/g, '\n').split('\n');
+  let firstIdx = -1;
+  for (let i = 0; i < lines.length; i++){
+    if (lines[i].trim()){ firstIdx = i; break; }
+  }
+  if (firstIdx === -1) return body;
+  const firstLine = lines[firstIdx].trim();
+  const headingMatch = firstLine.match(/^\*([^*]+)\*$/);
+  const headingText = headingMatch ? headingMatch[1].trim() : firstLine;
+  const norm = s => s.toLowerCase().replace(/[.!?\s]+$/g, '').trim();
+  if (norm(headingText) === norm(title)){
+    return lines.slice(firstIdx + 1).join('\n').replace(/^\n+/, '');
+  }
+  return body;
+}
+
+// ---- News ----
+async function loadNews(){
+  const el = document.getElementById('newsList');
+  try {
+    const items = await readCollection('news');
+    if (!items.length){ el.innerHTML = '<div class="empty">No announcements yet — check back soon.</div>'; return; }
+    el.innerHTML = items.slice(0,8).map((n, idx) => {
+      const raw = stripDuplicateHeading(n.body || '', n.title || '');
+      const isLong = raw.length > 260;
+      const bodyId = `news-body-${idx}`;
+      return `
+      <div class="item">
+        <div class="item-top">
+          <p class="t">${escapeHtml(n.title)}</p>
+          ${idx === 0 ? '<span class="latest-tag">Latest</span>' : ''}
+        </div>
+        <div class="d rich-wrap" id="${bodyId}">${formatRichBlocks(raw)}</div>
+        ${isLong ? `<button class="read-more" onclick="toggleExpand('${bodyId}', this)">Read more</button>` : ''}
+        <p class="meta">${fmtDate(n.createdAt)}</p>
+      </div>`;
+    }).join('');
+    // Items short enough to not need "Read more" shouldn't be clipped by the fade box.
+    items.slice(0,8).forEach((n, idx) => {
+      if ((n.body || '').length <= 260){
+        const elBody = document.getElementById(`news-body-${idx}`);
+        if (elBody) elBody.classList.add('expanded');
+      }
+    });
+  } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load news right now.</div>'; }
+}
+
+// ---- Calendar preview (Home) ----
+function dateParts(iso){
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return { day: '–', mon: '' };
+  return {
+    day: d.toLocaleDateString(undefined, { day: 'numeric' }),
+    mon: d.toLocaleDateString(undefined, { month: 'short' })
+  };
+}
+async function loadCalendarPreview(){
+  const el = document.getElementById('calendarPreview');
+  try {
+    const items = await readCollection('calendar');
+    if (!items.length){ el.innerHTML = '<div class="empty">No events scheduled yet.</div>'; return; }
+    el.innerHTML = items.slice(0,5).map(c => {
+      const dp = dateParts(c.date);
+      return `
+      <div class="cal-row">
+        <div class="cal-badge"><span class="day">${dp.day}</span><span class="mon">${dp.mon}</span></div>
+        <div class="cal-info">
+          <p class="t">${escapeHtml(c.title)}</p>
+          <p class="d">${c.time ? escapeHtml(c.time) : fmtDate(c.date)}${c.location ? ' · ' + escapeHtml(c.location) : ''}</p>
+        </div>
+      </div>`;
+    }).join('');
+  } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load the calendar right now.</div>'; }
+}
+
+// ---- Timetable, grouped by form with tabs ----
+let timetableData = [];
+async function loadTimetable(){
+  const listEl = document.getElementById('timetableList');
+  const tabsEl = document.getElementById('timetableForms');
+  try {
+    timetableData = await readCollection('timetable');
+    if (!timetableData.length){ listEl.innerHTML = '<div class="empty">Timetable not published yet.</div>'; tabsEl.innerHTML = ''; return; }
+    const forms = [...new Set(timetableData.map(t => t.form).filter(Boolean))];
+    tabsEl.innerHTML = forms.map((f,i) => `<button class="${i===0?'active':''}" data-form="${escapeHtml(f)}">${escapeHtml(f)}</button>`).join('');
+    tabsEl.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      tabsEl.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      renderTimetable(b.dataset.form);
+    }));
+    renderTimetable(forms[0]);
+  } catch(e){ listEl.innerHTML = '<div class="empty">Couldn\'t load the timetable right now.</div>'; }
+}
+function renderTimetable(form){
+  const listEl = document.getElementById('timetableList');
+  const rows = timetableData.filter(t => t.form === form);
+  if (!rows.length){ listEl.innerHTML = '<div class="empty">No timetable entries for this form yet.</div>'; return; }
+  listEl.innerHTML = `<table><thead><tr><th>Day</th><th>Time</th><th>Subject</th></tr></thead><tbody>${
+    rows.map(r => `<tr><td>${escapeHtml(r.day)}</td><td>${escapeHtml(r.time)}</td><td>${escapeHtml(r.subject)}</td></tr>`).join('')
+  }</tbody></table>`;
+}
+
+// ---- Homework ----
+async function loadHomework(){
+  const el = document.getElementById('homeworkList');
+  try {
+    const items = await readCollection('homework');
+    if (!items.length){ el.innerHTML = '<div class="empty">No homework posted yet.</div>'; return; }
+    el.innerHTML = items.slice(0,15).map((h, idx) => {
+      const raw = h.description || '';
+      const isLong = raw.length > 260;
+      const bodyId = `hw-body-${idx}`;
+      return `
+      <div class="item">
+        <p class="t">${escapeHtml(h.subject)} — ${escapeHtml(h.form)}</p>
+        <div class="d rich-wrap" id="${bodyId}">${formatRichBlocks(raw)}</div>
+        ${isLong ? `<button class="read-more" onclick="toggleExpand('${bodyId}', this)">Read more</button>` : ''}
+        <p class="meta">Due ${fmtDate(h.dueDate)}</p>
+      </div>`;
+    }).join('');
+    items.slice(0,15).forEach((h, idx) => {
+      if ((h.description || '').length <= 260){
+        const elBody = document.getElementById(`hw-body-${idx}`);
+        if (elBody) elBody.classList.add('expanded');
+      }
+    });
+  } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load homework right now.</div>'; }
+}
+
+// ---- Results highlights ----
+async function loadResults(){
+  const el = document.getElementById('resultsList');
+  try {
+    const items = await readCollection('results');
+    if (!items.length){ el.innerHTML = '<div class="empty">Results not published yet.</div>'; return; }
+    el.innerHTML = `<table><thead><tr><th>Form</th><th>Subject</th><th>Average</th><th>Term</th></tr></thead><tbody>${
+      items.map(r => `<tr><td>${escapeHtml(r.form)}</td><td>${escapeHtml(r.subject)}</td><td>${escapeHtml(r.average)}%</td><td>${escapeHtml(r.term)}</td></tr>`).join('')
+    }</tbody></table>`;
+  } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load results right now.</div>'; }
+}
+
+// ---- Fees ----
+async function loadFees(){
+  const el = document.getElementById('feesList');
+  try {
+    const items = await readCollection('fees');
+    if (!items.length){ el.innerHTML = '<div class="empty">Fee schedule not published yet.</div>'; return; }
+    el.innerHTML = items.map(f => `
+      <div class="fee-row"><span>${escapeHtml(f.label)}${f.period ? ' · ' + escapeHtml(f.period) : ''}</span><span class="amt">$${escapeHtml(f.amount)}</span></div>
+    `).join('');
+  } catch(e){ el.innerHTML = '<div class="empty">Couldn\'t load fees right now.</div>'; }
+}
+
+// ---- Payment declaration -> WhatsApp to Bursar ----
+document.getElementById('payForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  const text = `Payment declaration for Hatfield Elite Academy:%0A` +
+    `Student: ${data.studentName}%0A` +
+    `Form: ${data.form}%0A` +
+    `Amount: $${data.amount}%0A` +
+    `Method: ${data.method}%0A` +
+    `Reference: ${data.reference || 'N/A'}`;
+  window.location.href = `https://wa.me/${BURSAR_WHATSAPP}?text=${text}`;
+});
+
+// ---- Enrolment banner: enlarge on tap + WhatsApp enquiry ----
+const SCHOOL_WHATSAPP = "263775000713"; // school's enquiry number
+document.getElementById('enquireBtn').href =
+  `https://wa.me/${SCHOOL_WHATSAPP}?text=${encodeURIComponent("Hello Hatfield Elite Academy, I would like to enquire about enrolment for 2027.")}`;
+const lightbox = document.getElementById('lightbox');
+document.getElementById('bannerImg').addEventListener('click', () => { lightbox.style.display = 'block'; });
+document.getElementById('lightboxClose').addEventListener('click', () => { lightbox.style.display = 'none'; });
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.style.display = 'none'; });
+
+// ---- Init ----
+loadNews();
+loadCalendarPreview();
+loadTimetable();
+loadHomework();
+loadResults();
+loadFees();
+</script>
+</body>
+</html>
